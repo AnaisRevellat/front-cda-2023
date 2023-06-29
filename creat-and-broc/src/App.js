@@ -1,4 +1,6 @@
-import './categories.styles.scss'
+import './App.styles.scss';
+
+import Directory from './components/directory/directory.component';
 
 const App = () => {
 
@@ -37,37 +39,19 @@ const App = () => {
     }
   ]
 
-
-
   return (
     <>
       <div className="home-container">
 
         <main className="main-container">
-
           <div className="home-category-container">
-
             <div className="background-home" style={{ backgroundImage: `url(${homeUrl})` }} />
-
           </div>
-
         </main>
 
-        <section className="categories-container">
+        <Directory categories={categories} />
 
-          {categories.map(({ id, title, subtitle, backUrl }) => (
-            <div className="category-container" key={id}>
-              {/* <img alt="" /> */}
-              <div className="background-image" style={{ backgroundImage: `url(${backUrl})` }} />
-
-              <div className="category-body-container" >
-                <h2>{title}</h2>
-                <p>{subtitle}</p>
-              </div>
-            </div>
-          ))}
-
-        </section>
+       
       </div>
     </>
   );
