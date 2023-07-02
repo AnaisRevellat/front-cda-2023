@@ -1,0 +1,42 @@
+.logo{
+  position:absolute;
+  width:150px;
+  height:auto;
+  top: 0rem;
+  left:10rem;
+  z-index:1;
+}
+
+.navigation {
+  position:absolute;
+  z-index:1;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  background: rgba(6, 58, 26, 0.801);
+  
+
+  .logo-container {
+    height: 100%;
+    width: 70px;
+    padding: 25px;
+  }
+
+  .nav-links-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+
+    .nav-link {
+      text-transform: uppercase;
+      padding: 10px 15px;
+      cursor: pointer;
+      color:white;
+    }
+  }
+}

@@ -1,9 +1,24 @@
 body {
-  background:100vh;
-  margin: 0;
-  background:rgb(219, 240, 219);
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	background: 100vh;
+	margin: 0;
+	background: rgb(219, 240, 219);
+	font-family: "Open Sans", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
+.home-container {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 2300px;
+	background-color: black;
+}
+
+* {
+	box-sizing: border-box; //to avoid suprise with padding and borders
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
