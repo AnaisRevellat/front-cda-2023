@@ -1,31 +1,33 @@
+.homepage {
+	background: black;
 
-
-.main-container {
-	width: 100%;
-	display: flex;
-	height: 395px;
-	justify-content: center;
-	flex-wrap: wrap;
-	//background: green;
-
-	.home-category-container {
-		min-width: 30%;
-		height: 380px;
-		flex: auto;
+	.main-container {
+		width: 100%;
 		display: flex;
-		align-items: center;
+		height: 395px;
 		justify-content: center;
-		border: 1px solid black;
-		margin: 0 7.5px 15px;
-		overflow: hidden;
-		background: yellow;
+		flex-wrap: wrap;
+		//background: green;
 
-		.background-home {
-			background-size: cover;
-			height: 100%;
-			width: 100%;
-			transform: scale(1.1);
-			transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+		.home-category-container {
+			min-width: 30%;
+			height: 380px;
+			flex: auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid black;
+			margin: 0 7.5px 15px;
+			overflow: hidden;
+			background: yellow;
+
+			.background-home {
+				background-size: cover;
+				height: 100%;
+				width: 100%;
+				transform: scale(1.1);
+				transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+			}
 		}
 	}
 }

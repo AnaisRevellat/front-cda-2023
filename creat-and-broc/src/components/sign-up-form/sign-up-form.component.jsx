@@ -65,7 +65,7 @@ const SignUpForm = ({ className }) => {
 	return (
 		<div className={`form-box sign-up-container ${className}`}>
 			<h2>Pas encore de compte ?</h2>
-			<span>Sign up with your email and password</span>
+			<span>Sign up</span>
 			<form onSubmit={handleSubmit}>
 				<FormInput
 					label='Nom'

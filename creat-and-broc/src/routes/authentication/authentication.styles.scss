@@ -1,0 +1,16 @@
+.authentication-container {
+	display: flex;
+	width: 100%;
+	//margin: 0px auto; 
+  background:#d3fdd3;
+
+	.main-form-container {
+		margin-top: 150px;
+		display: flex;
+		
+	}
+}
+
+.sign-in {
+	z-index: 10;
+}

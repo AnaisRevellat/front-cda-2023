@@ -40,7 +40,7 @@ const Home = () => {
 
 	return (
 		<>
-			<div>
+			<div className="homepage">
 				<Directory categories={categories} homeUrl={homeUrl} />
 			</div>
 		</>

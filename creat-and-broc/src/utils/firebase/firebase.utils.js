@@ -4,7 +4,8 @@ import {
   signInWithRedirect, 
   signInWithPopup,
   GoogleAuthProvider,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from 'firebase/auth';
 
 //firestore database -- here to access the data we call the method getDoc
@@ -78,4 +79,9 @@ if(!userAuth) return;
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if(!email || !password) return;
   return await createUserWithEmailAndPassword(auth, email, password)
+}
+
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+  if(!email || !password) return;
+  return await signInWithEmailAndPassword(auth, email, password)
 }
