@@ -7,8 +7,10 @@ import {
 
 //component
 import FormInput from "../form_input/form-input.component";
+import Button from "../button/button.component";
 
-import "./sign-up-form.component.scss";
+//scss
+import "./sign-up-form.styles.scss";
 
 //values of formFields
 const defaultFormFields = {
@@ -61,8 +63,9 @@ const SignUpForm = ({ className }) => {
 	};
 
 	return (
-		<div>
-			<h1>Sign up with your email and password</h1>
+		<div className={`form-box sign-up-container ${className}`}>
+			<h2>Pas encore de compte ?</h2>
+			<span>Sign up with your email and password</span>
 			<form onSubmit={handleSubmit}>
 				<FormInput
 					label='Nom'
@@ -94,11 +97,9 @@ const SignUpForm = ({ className }) => {
 					name='password'
 					value={password}
 				/>
-
-			
       
 				<FormInput
-          label="confirmation du mot de passe"
+          label="Confirmation du mot de passe"
 					className={className}
 					required
 					type='password'
@@ -107,7 +108,7 @@ const SignUpForm = ({ className }) => {
 					value={confirmPassword}
 				/>
 
-				<button type='submit'>Sign Up</button>
+				<Button type='submit'>Sign Up</Button>
 			</form>
 		</div>
 	);
