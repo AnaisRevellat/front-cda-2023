@@ -1,20 +1,21 @@
-import {initializeApp} from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 import {
-  getAuth, 
-  signInWithRedirect, 
+  getAuth,
+  signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut
 } from 'firebase/auth';
 
 //firestore database -- here to access the data we call the method getDoc
-import { 
+import {
   getFirestore,
   doc,
   getDoc,
   setDoc
- } from 'firebase/firestore'
+} from 'firebase/firestore'
 
 
 const firebaseConfig = {
@@ -36,15 +37,15 @@ googleProvider.setCustomParameters({
 });
 
 export const auth = getAuth();
-export const signInWithGooglePopup = () =>signInWithPopup(auth, googleProvider);
+export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
 //redirect
 export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 
 //firestore
 export const db = getFirestore();
 
-export const createUserDocumentFromAuth = async(userAuth, additionalInformation = {}) => {
-if(!userAuth) return;
+export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
+  if (!userAuth) return;
 
   //doc(db, collection, uid) -- it gives the doc reference inside the db under the users' collection
   const userDocRef = doc(db, 'users', userAuth.uid);
@@ -56,18 +57,18 @@ if(!userAuth) return;
   //this method exist() here help us to know if the user exist on the firestore
   console.log(userSnapshot.exists())
 
-  if(!userSnapshot.exists()) {
+  if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
     const createdAd = new Date();
 
     try {
       await setDoc(userDocRef, {
-        displayName, 
-        email, 
+        displayName,
+        email,
         createdAd,
         ...additionalInformation
       })
-    } catch(error) {
+    } catch (error) {
       console.log('error creating the user', error.message);
     }
   }
@@ -77,11 +78,13 @@ if(!userAuth) return;
 
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
-  if(!email || !password) return;
+  if (!email || !password) return;
   return await createUserWithEmailAndPassword(auth, email, password)
 }
 
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
-  if(!email || !password) return;
+  if (!email || !password) return;
   return await signInWithEmailAndPassword(auth, email, password)
 }
+
+export const signOutUser = async() => await signOut(auth);
