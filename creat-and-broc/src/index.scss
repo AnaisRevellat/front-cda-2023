@@ -1,6 +1,8 @@
 body {
 	background: 100vh;
+	background-color: black;
 	margin: 0;	
+	padding: 20px 10px;
 	font-family: "Open Sans", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -14,6 +16,7 @@ body {
 
 * {
 	box-sizing: border-box; //to avoid suprise with padding and borders
+	//background-color: black;
 }
 
 a {

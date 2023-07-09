@@ -3,16 +3,20 @@ import { Outlet, Link } from "react-router-dom";
 
 //components
 import { ReactComponent as CreatBrocLogo } from "../../../src/assets/creat_and_broc_logo.svg";
-import CartIcon from '../../components/cart-icon/cart-icon.component'
+import CartIcon from "../../components/cart-icon/cart-icon.component";
+import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
+
+//scss
 import "./navigation.styles.scss";
 
 //context
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import { CartContext } from "../../contexts/cart.context";
 
 const Navigation = () => {
 	const { currentUser, setCurrentUser } = useContext(UserContext);
-	console.log(currentUser);
+	const { isCartOpen } = useContext(CartContext);
 
 	const signOutHandler = async () => {
 		await signOutUser();
@@ -30,7 +34,6 @@ const Navigation = () => {
 					<Link className='nav-link' to='/shop'>
 						Boutique
 					</Link>
-					<CartIcon />
 
 					{currentUser ? (
 						<span className='nav-link' onClick={signOutHandler}>
@@ -41,7 +44,9 @@ const Navigation = () => {
 							Sign In
 						</Link>
 					)}
+					<CartIcon />
 				</div>
+				{isCartOpen && <CartDropdown /> }
 			</div>
 			<Outlet />
 		</>
