@@ -6,6 +6,7 @@ import App from './App';
 
 //context
 import { UserProvider } from './contexts/user.context';
+import { ProductsProvider } from './contexts/products.context';
 
 //scss
 import './index.scss';
@@ -16,7 +17,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
+        <ProductsProvider>
         <App />
+        </ProductsProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
