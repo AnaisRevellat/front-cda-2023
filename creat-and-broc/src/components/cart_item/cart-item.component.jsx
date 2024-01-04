@@ -13,4 +13,5 @@ const CartItem = ({ cartItem }) => {
 	);
 };
 
+
 export default CartItem;
